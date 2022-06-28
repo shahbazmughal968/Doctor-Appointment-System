@@ -86,7 +86,7 @@ const Home = (props) => {
   return (
     <>
       <div
-        className=" row mx-3 rounded-pill bg-dark
+        className=" row mx-3  
     my-3 d-flex justify-content-center py-2"
       >
         <div className="col-2 text-light w-auto border rounded-pill m-1">
@@ -133,9 +133,9 @@ const Home = (props) => {
           <span className="fs-5">{generalSurgeryCount}</span>
         </div>
       </div>
-      <h1 className="text-center border border-dark rounded-pill w-50 m-auto p-2"> Welcome to Doctor Booking Portal</h1>
+      <h1 className="text-center border border-light text-light rounded-pill w-50 m-auto p-2"> Welcome to Doctor Booking Portal</h1>
       {doctorData.map((item) => (
-        <span key={item.id} className={`card p-3 border-dark ${classes.doctorCard}`}>
+        <span key={item.id} className={`card p-3 shadow  ${classes.doctorCard}`}>
           <span>
             <span className="fw-bold ">Name: </span>
             {item.name}
@@ -162,7 +162,7 @@ const Home = (props) => {
           </span>
           <br />
           <button
-            className="border-1 rounded bg-dark text-light mt-3"
+            className="shadow rounded-pill mt-3"
             onClick={() => {
               navigate("../book-appointment", { replace: true });
               props.setDoctorData(item);

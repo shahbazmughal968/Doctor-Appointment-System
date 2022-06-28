@@ -128,39 +128,39 @@ setPatientCount(false);
   };
   return (
     <>
-      <h1 className="text-center my-3">
+      <h1 className="text-center my-3 text-light">
         Book Your Appointment With Doctor {props.doctorData.name}
       </h1>
       <div className="row w-50 m-auto mb-5 d-flex justify-content-center">
-        <div className="col-3 text-center w-auto border rounded-pill text-light bg-dark">
+        <div className="col-3 text-center w-auto  rounded-pill text-light shadow ">
           <p className="fw-bold fs-5 d-inline">Email :</p>
           <p className="d-inline">{props.doctorData.email}</p>
         </div>
-        <div className="col-3 text-center w-auto border rounded-pill text-light bg-dark">
+        <div className="col-3 text-center w-auto  rounded-pill text-light shadow ">
           <p className="fw-bold fs-5 d-inline">Speciality :</p>
           <p className="d-inline">{props.doctorData.speciality}</p>
         </div>
-        <div className="col-3 text-center w-auto border rounded-pill text-light bg-dark">
+        <div className="col-3 text-center w-auto  rounded-pill text-light shadow ">
           <p className="fw-bold fs-5 d-inline">Fee :</p>
           <p className="d-inline">{props.doctorData.fee}</p>
         </div> 
-        <div className="col-3 text-center w-auto border rounded-pill text-light bg-dark">
+        <div className="col-3 text-center w-auto  rounded-pill text-light shadow ">
           <p className="fw-bold fs-5 d-inline">Pending Patients :</p>
           <p className="d-inline">{pendingPatients}</p>
         </div>
-        <div className="col-3 text-center w-auto border rounded-pill text-light bg-dark">
+        <div className="col-3 text-center w-auto  rounded-pill text-light shadow">
           <p className="fw-bold fs-5 d-inline">Total Earning :</p>
           <p className="d-inline">{Number(doneApointment) * Number(props.doctorData.fee)}</p>
         </div>
       </div>
 
     {patientCount &&  <form
-        className="w-25 m-auto card p-3 border-dark bg-dark"
+        className={`w-25 m-auto card p-3 shadow ${classes.bg}`}
         onSubmit={onFormSubmithandler}
       >
         <h2 className="m-auto mb-3 text-light">Patient Appointment Form</h2>
         <input
-          className="w-75 m-auto p-3 mb-3 rounded-pill"
+          className="w-75 m-auto p-3 mb-3 rounded-pill shadow border"
           type="text"
           placeholder="Name"
           value={enteredName}
@@ -168,7 +168,7 @@ setPatientCount(false);
           onBlur={nameBlurHandler}
         />
         <input
-          className="w-75 m-auto p-3 mb-3 rounded-pill"
+          className="w-75 m-auto p-3 mb-3 rounded-pill shadow border"
           type="number"
           placeholder="Age"
           value={enteredAge}
@@ -176,7 +176,7 @@ setPatientCount(false);
           onBlur={ageBlurHandler}
         />
         <input
-          className="w-75 m-auto p-3 mb-3 rounded-pill"
+          className="w-75 m-auto p-3 mb-3 rounded-pill shadow border"
           type="date"
           placeholder="Age"
           value={enteredDate}
@@ -184,7 +184,7 @@ setPatientCount(false);
           onBlur={dateBlurHandler}
         />
         <button
-          className="btn border-1 border-dark w-75 m-auto fs-5 fw-bold bg-light rounded-pill mb-3"
+          className="btn shadow w-75 m-auto fs-5 fw-bold text-light rounded-pill shadow border mb-3"
           type="submit"
         >
           Submit
