@@ -1,0 +1,9 @@
+.greenPass{
+    display: flex;
+    align-self: center;
+    width: 10px;
+    height: 10px;
+    background-color: yellow;
+    border-radius: 50%;
+    
+}
