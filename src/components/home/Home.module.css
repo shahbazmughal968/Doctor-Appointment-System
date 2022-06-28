@@ -2,10 +2,16 @@
     width: 400px;
     display: inline-block;
     margin: 30px;
-    background: none;
+    background: linear-gradient(106.35deg, #15837f 0%, #388a87 100%);
+    border: none;
+    border-radius: 30px;
 
 }
 button{
-    border: 1px solid black;
-    background: none;
+    background: linear-gradient(106.35deg, #36b3ae 0%, #4eb8b6 100%);
+
+}
+.bg{
+    background: linear-gradient(106.35deg, #15837f 0%, #388a87 100%);
+
 }

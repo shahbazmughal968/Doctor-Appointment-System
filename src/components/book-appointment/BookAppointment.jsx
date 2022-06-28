@@ -132,23 +132,23 @@ setPatientCount(false);
         Book Your Appointment With Doctor {props.doctorData.name}
       </h1>
       <div className="row w-50 m-auto mb-5 d-flex justify-content-center">
-        <div className="col-3 text-center w-auto  rounded-pill text-light shadow ">
+        <div className={`col-3 text-center w-auto  rounded-pill text-light shadow ${classes.docInfoBg}`}>
           <p className="fw-bold fs-5 d-inline">Email :</p>
           <p className="d-inline">{props.doctorData.email}</p>
         </div>
-        <div className="col-3 text-center w-auto  rounded-pill text-light shadow ">
+        <div className={`col-3 text-center w-auto  rounded-pill text-light shadow ${classes.docInfoBg}`}>
           <p className="fw-bold fs-5 d-inline">Speciality :</p>
           <p className="d-inline">{props.doctorData.speciality}</p>
         </div>
-        <div className="col-3 text-center w-auto  rounded-pill text-light shadow ">
+        <div className={`col-3 text-center w-auto  rounded-pill text-light shadow ${classes.docInfoBg}`}>
           <p className="fw-bold fs-5 d-inline">Fee :</p>
           <p className="d-inline">{props.doctorData.fee}</p>
         </div> 
-        <div className="col-3 text-center w-auto  rounded-pill text-light shadow ">
+        <div className={`col-3 text-center w-auto  rounded-pill text-light shadow ${classes.docInfoBg}`}>
           <p className="fw-bold fs-5 d-inline">Pending Patients :</p>
           <p className="d-inline">{pendingPatients}</p>
         </div>
-        <div className="col-3 text-center w-auto  rounded-pill text-light shadow">
+        <div className={`col-3 text-center w-auto  rounded-pill text-light shadow ${classes.docInfoBg}`}>
           <p className="fw-bold fs-5 d-inline">Total Earning :</p>
           <p className="d-inline">{Number(doneApointment) * Number(props.doctorData.fee)}</p>
         </div>
@@ -160,7 +160,7 @@ setPatientCount(false);
       >
         <h2 className="m-auto mb-3 text-light">Patient Appointment Form</h2>
         <input
-          className="w-75 m-auto p-3 mb-3 rounded-pill shadow border"
+          className="w-75 m-auto p-3 mb-3 rounded-pill shadow "
           type="text"
           placeholder="Name"
           value={enteredName}
@@ -168,7 +168,7 @@ setPatientCount(false);
           onBlur={nameBlurHandler}
         />
         <input
-          className="w-75 m-auto p-3 mb-3 rounded-pill shadow border"
+          className="w-75 m-auto p-3 mb-3 rounded-pill shadow "
           type="number"
           placeholder="Age"
           value={enteredAge}
@@ -176,7 +176,7 @@ setPatientCount(false);
           onBlur={ageBlurHandler}
         />
         <input
-          className="w-75 m-auto p-3 mb-3 rounded-pill shadow border"
+          className="w-75 m-auto p-3 mb-3 rounded-pill shadow "
           type="date"
           placeholder="Age"
           value={enteredDate}
@@ -184,13 +184,13 @@ setPatientCount(false);
           onBlur={dateBlurHandler}
         />
         <button
-          className="btn shadow w-75 m-auto fs-5 fw-bold text-light rounded-pill shadow border mb-3"
+          className="btn shadow w-75 m-auto fs-5 fw-bold text-light rounded-pill shadow  mb-3"
           type="submit"
         >
           Submit
         </button>
       </form>}
-     {!patientCount && <h1 className="text-center border border-dark rounded-pill bg-dark text-light w-50 m-auto p-3">Patient Count is Full</h1>}
+     {!patientCount && <h1 className={`text-center  rounded-pill shadow text-light w-50 m-auto p-3 ${classes.docInfoBg}`}>Patient Count is Full</h1>}
     </>
   );
 };

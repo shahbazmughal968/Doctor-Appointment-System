@@ -33,19 +33,19 @@ const AllAppointments = () => {
   });
   return (
     <>
-      <h1 className="text-center shadow rounded-pill  text-light w-25 m-auto p-3 my-3">
+      <h1 className={`text-center shadow rounded-pill  text-light w-25 m-auto p-3 my-3 ${classes.bg}`}>
         All Appointment
       </h1>
       <div className="row w-50 m-auto">
-        <div className="col-4 w-auto shadow rounded-pill text-light mx-2">
+        <div className={`col-4 w-auto shadow rounded-pill text-light mx-2 ${classes.bg}`}>
           <span className="fw-bold fs-5">Total Appointments :</span>
           <span className="fs-5">{appointmentList.length}</span>
         </div>
-        <div className="col-4  w-auto shadow rounded-pill text-light mx-2">
+        <div className={`col-4  w-auto shadow rounded-pill text-light mx-2 ${classes.bg}`}>
           <span className="fw-bold fs-5">Total Pending Appointments :</span>
           <span className="fs-5">{pendingApointment}</span>
         </div>
-        <div className="col-4  w-auto shadow rounded-pill text-light mx-2">
+        <div className={`col-4  w-auto shadow rounded-pill text-light mx-2 ${classes.bg}`}>
           <span className="fw-bold fs-5">Total Done Appointments :</span>
           <span className="fs-5">{doneApointment}</span>
         </div>
@@ -54,10 +54,10 @@ const AllAppointments = () => {
         {appointmentList.map((item) => (
           <span
             key={item.id}
-            className={`card p-3 shadow  ${classes.listCard}`}
+            className={`card p-4 shadow text-light  ${classes.listCard}`}
           >
             <span>
-              <p className="fw-bold  shadow rounded-pill text-light p-2 text-center">
+              <p className={`fw-bold  shadow rounded-pill text-light p-2 text-center ${classes.bg}`}>
                 Appointment with Doctor {item.doctor_name}
               </p>
               <br />

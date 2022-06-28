@@ -3,4 +3,11 @@
     display: inline-block;
     margin: 30px;
     background: none;
+    border-radius: 30px;
+    border: none;
+    background: linear-gradient(106.35deg, #0E918C 0%, #077c78 100%);
+}
+.bg{
+    background: linear-gradient(106.35deg, #15837f 0%, #388a87 100%);
+
 }
