@@ -88,7 +88,7 @@ setPatientCount(false);
     const matchData= loadedData.filter((patient)=>patient.patient_name === enteredName);
     if(matchData.length > 0)
     {
-        alert('Dear Patient you already have appointment with doctor ' + props.doctorData.name + " on " + matchData[0].appointment_Date);
+        alert('Dear Patient you already have appointment with doctor ' + matchData[0].doctor_name + " on " + matchData[0].appointment_Date);
         resetNameInput('');
         resetAgeInput('');
         resetDateInput('')
