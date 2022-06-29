@@ -66,12 +66,12 @@ const AllAppointments = () => {
             </span>
             <br />
             <span>
-              <span className="fw-bold ">Patient Name: </span>
+              <span className="fw-bold ">Patient Age: </span>
               {item.patient_age}
             </span>
             <br />
             <span>
-              <span className="fw-bold ">Patient Name: </span>
+              <span className="fw-bold ">Appointment Date: </span>
               {item.appointment_Date}
             </span>
           </span>
