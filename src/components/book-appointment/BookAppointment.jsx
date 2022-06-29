@@ -7,12 +7,15 @@ import { useParams } from "react-router-dom";
 const BookAppointment = (props) => {
   const navigate=useNavigate();
   const params=useParams();
-  // console.log(params.doctorId);
+
+  // code for  the declaration of use States start from here
  const [doctorData,setDoctorData]=useState([]);
 const [patientCount,setPatientCount]=useState(true);
 const [pendingPatients,setPendingpatients]=useState('');
 const [doneApointment, setDoneApointment] = useState([]);
+  // code for  the declaration of use States end's from here
 
+  // code for  the setting input fields start from here
   const {
     value: enteredName,
     isValid: enteredNameIsValid,
@@ -37,7 +40,10 @@ const [doneApointment, setDoneApointment] = useState([]);
     inputBlurHandler: dateBlurHandler,
     reset: resetDateInput,
   } = useInput((value) => value.trim() !== "");
+  // code for  the setting input fields end's from here
 
+
+  // code for  the fetching doctor data and set in useState start from here
   const fetchDoctorData = async () =>{
     const response = await fetch(
       "https://react-app-7bde4-default-rtdb.firebaseio.com/doctors.json"
@@ -58,7 +64,9 @@ const [doneApointment, setDoneApointment] = useState([]);
     const matchData=loadedData.filter((user)=>user.id === params.doctorId)
     setDoctorData(matchData[0]);
   }
+  // code for  the fetching doctor data and set in useState start from here
 
+  // code for  the fetching appointments data for specfic doctor and set in useState start from here
   const appointment_count = async() =>{
     const response =await fetch('https://react-app-7bde4-default-rtdb.firebaseio.com/appointment.json');
     const data =await response.json();
@@ -92,13 +100,19 @@ setPatientCount(false);
 
     
   }
+  // code for  the fetching appointments data for specfic doctor and set in useState end's from here
+
+
+  // code for  useEffect to get doctor data and statues on every refresh start from here
   useEffect(()=>{
     appointment_count();
     fetchDoctorData();
-  })
+  });
+  // code for  useEffect to get doctor data and statues on every refresh end's from here
 
 
 
+  // code for  booking appointment start from here
   const onFormSubmithandler = async (event) => {
     event.preventDefault();
     const response =await fetch('https://react-app-7bde4-default-rtdb.firebaseio.com/appointment.json');
@@ -157,8 +171,12 @@ setPatientCount(false);
    
 
   };
+  // code for  booking appointment end's from here
+
   return (
     <>
+  {/* // code for  display doctor data start from here */}
+
       <h1 className="text-center my-3 text-light">
         Book Your Appointment With Doctor {doctorData.name}
       </h1>
@@ -184,7 +202,10 @@ setPatientCount(false);
           <p className="d-inline">{Number(doneApointment) * Number(doctorData.fee)}</p>
         </div>
       </div>
+  {/* // code for  display doctor data end's from here */}
 
+
+  {/* // code for  display appointment form start from here */}
     {patientCount &&  <form
         className={`w-25 m-auto card p-3 shadow ${classes.bg}`}
         onSubmit={onFormSubmithandler}
@@ -226,7 +247,10 @@ setPatientCount(false);
           Submit
         </button>
       </form>}
+
      {!patientCount && <h1 className={`text-center  rounded-pill shadow text-light w-50 m-auto p-3 ${classes.docInfoBg}`}>Patient Count is Full</h1>}
+  {/* // code for  display appointment form end's from here */}
+
     </>
   );
 };

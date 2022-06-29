@@ -2,9 +2,11 @@ import classes from "./Home.module.css";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const Home = (props) => {
+const Home = () => {
  
   const navigate = useNavigate();
+
+  // code for  the declaration of use States start from here
   const [doctorData, setDoctorData] = useState([]);
   const [dermatologyCount, setDermatologyCount] = useState("");
   const [emergencyMedicineCount, setEmergencyMedicineCount] = useState("");
@@ -16,11 +18,11 @@ const Home = (props) => {
   const [gastroenterologyCount,setGastroenterologyCount]=useState('');
   const [generalInternalMedicineCount,setGeneralInternalMedicineCount]=useState('');
   const [generalSurgeryCount,setGeneralSurgeryCount]=useState(''); 
+  // code for  the declaration of use States end's here
 
 
 
-
-
+  // code for  the fetching doctors data start from here
 
   const fetchDoctorData = async () => {
     const response = await fetch(
@@ -39,6 +41,7 @@ const Home = (props) => {
         fee: data[key].fee,
       });
     }
+
     setDoctorData(loadedData);
     const DermatologyCount = loadedData.filter(
       (user) => user.speciality === "Dermatology"
@@ -81,11 +84,20 @@ const Home = (props) => {
     setGeneralInternalMedicineCount(GeneralInternalMedicineCount.length)
     setGeneralSurgeryCount(GeneralSurgeryCount.length);
   };
+  // code for  the fetching doctors data end's here
+
+
+  // code for  useEffect to get doctors data on every refresh  start from here
   useEffect(() => {
     fetchDoctorData();
   });
+  // code for  useEffect to get doctors data on every refresh  start from here
+
+
   return (
     <>
+  {/* // code for display specialize doctors data  start from here */}
+
       <div
         className=" row mx-3  
     my-3 d-flex justify-content-center py-2"
@@ -134,7 +146,14 @@ const Home = (props) => {
           <span className="fs-5">{generalSurgeryCount}</span>
         </div>
       </div>
+  {/* // code for display specialize doctors data  end's from here */}
+
+
+
       <h1 className={`text-center shadow  text-light rounded-pill w-50 m-auto p-2 ${classes.bg}`}> Welcome to Doctor Booking Portal</h1>
+
+  {/* // code for display all doctors list  start from here */}
+
       {doctorData.map((item) => (
         <span key={item.id} className={`card p-4 shadow text-light  ${classes.doctorCard}`}>
           <span>
@@ -172,6 +191,9 @@ const Home = (props) => {
           </button>
         </span>
       ))}
+
+  {/* // code for display all doctors list end's from here */}
+
     </>
   );
 };

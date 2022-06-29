@@ -12,7 +12,6 @@ function App() {
     <Routes>
       <Route index element={<Home/>}/>
      <Route path='home' element={<Home />}/>
-     <Route path='book-appointment' element={<BookAppointment />}/>
      <Route path='all-appointments' element={<AllApointments />}/>
      <Route path="doctor/:doctorId" element={<BookAppointment />}/>
     </Routes>

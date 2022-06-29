@@ -1,10 +1,13 @@
 import { useState, useEffect } from "react";
 import classes from "./AllApointment.module.css";
 const AllAppointments = () => {
+  // code for  the declaration of use States start from here
   const [appointmentList, setAppointmentList] = useState([]);
   const [pendingApointment, setPendingApointment] = useState([]);
   const [doneApointment, setDoneApointment] = useState([]);
+  // code for  the declaration of use States end's from here
 
+  // code for  getting appointments data start from here
   const listOfAppointments = async () => {
     const response = await fetch(
       "https://react-app-7bde4-default-rtdb.firebaseio.com/appointment.json"
@@ -28,14 +31,25 @@ const AllAppointments = () => {
     setDoneApointment(doneAppointmentCount.length);
     setAppointmentList(loadedData);
   };
+  // code for  getting appointments data end's from here
+
+
+  // code for  useEffect to get appointment  data on every refresh start from here
   useEffect(() => {
     listOfAppointments();
   });
+  // code for  useEffect to get appointment  data on every refresh end's from here
+
+
+
   return (
     <>
+
       <h1 className={`text-center shadow rounded-pill  text-light w-25 m-auto p-3 my-3 ${classes.bg}`}>
         All Appointment
       </h1>
+
+  {/* // code for  display appointments status start from here */}
       <div className="row w-50 m-auto">
         <div className={`col-4 w-auto shadow rounded-pill text-light mx-2 ${classes.bg}`}>
           <span className="fw-bold fs-5">Total Appointments :</span>
@@ -50,6 +64,11 @@ const AllAppointments = () => {
           <span className="fs-5">{doneApointment}</span>
         </div>
       </div>
+  {/* // code for  display appointments status end's from here */}
+
+
+  {/* // code for  display all  appointments data start from here */}
+
       <div className="w-75 m-auto">
         {appointmentList.map((item) => (
           <span
@@ -77,6 +96,8 @@ const AllAppointments = () => {
           </span>
         ))}
       </div>
+  {/* // code for  display all  appointments data end's from here */}
+
     </>
   );
 };
