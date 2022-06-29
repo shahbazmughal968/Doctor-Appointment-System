@@ -155,8 +155,8 @@ setPatientCount(false);
                     patient_Age:enteredAge,
                     appointment_Date:enteredDate,
                     appointment_status:'Pending',
-                    doctor_id:props.doctorData.id,
-                    doctor_name:props.doctorData.name,
+                    doctor_id:doctorData.id,
+                    doctor_name:doctorData.name,
                     
                   }),
                 }
