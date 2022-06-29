@@ -1,10 +1,8 @@
 import classes from "./Home.module.css";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useParams } from "react-router-dom";
 
 const Home = (props) => {
-  const params=useParams()
  
   const navigate = useNavigate();
   const [doctorData, setDoctorData] = useState([]);
@@ -168,7 +166,6 @@ const Home = (props) => {
             className="shadow rounded-pill btn mt-3 text-light "
             onClick={() => {
               navigate(`/doctor/${item.id}`, { replace: true });
-              props.setDoctorData(item);
             }}
           >
             Book an Appoinment

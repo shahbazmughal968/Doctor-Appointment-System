@@ -7,6 +7,7 @@ import { useParams } from "react-router-dom";
 const BookAppointment = (props) => {
   const navigate=useNavigate();
   const params=useParams();
+  // console.log(params.doctorId);
  const [doctorData,setDoctorData]=useState([]);
 const [patientCount,setPatientCount]=useState(true);
 const [pendingPatients,setPendingpatients]=useState('');
@@ -37,6 +38,27 @@ const [doneApointment, setDoneApointment] = useState([]);
     reset: resetDateInput,
   } = useInput((value) => value.trim() !== "");
 
+  const fetchDoctorData = async () =>{
+    const response = await fetch(
+      "https://react-app-7bde4-default-rtdb.firebaseio.com/doctors.json"
+    );
+    const data = await response.json();
+
+    let loadedData = [];
+    for (const key in data) {
+      loadedData.push({
+        id: key,
+        name: data[key].name,
+        age: data[key].age,
+        email: data[key].email,
+        speciality: data[key].speciality,
+        fee: data[key].fee,
+      });
+    }
+    const matchData=loadedData.filter((user)=>user.id === params.doctorId)
+    setDoctorData(matchData[0]);
+  }
+
   const appointment_count = async() =>{
     const response =await fetch('https://react-app-7bde4-default-rtdb.firebaseio.com/appointment.json');
     const data =await response.json();
@@ -53,10 +75,10 @@ const [doneApointment, setDoneApointment] = useState([]);
             doctor_name:data[key].doctor_name,
         })
     }
-    const matchData=loadedData.filter((user)=> user.doctor_id === props.doctorData.id && user.appointment_status==='Pending');
-    const appointmentDoneCount = loadedData.filter((count)=>count.appointment_status === 'Done' && count.doctor_id === props.doctorData.id);
-    const doctor=loadedData.filter((doc)=>doc.doctor_id === params.doctorId)
-setDoctorData(doctor);
+    const matchData=loadedData.filter((user)=> user.doctor_id === params.doctorId && user.appointment_status==='Pending');
+    const appointmentDoneCount = loadedData.filter((count)=>count.appointment_status === 'Done' && count.doctor_id === params.doctorId);
+
+ 
 
       setPendingpatients(matchData.length);
       setDoneApointment(appointmentDoneCount.length);
@@ -66,13 +88,13 @@ setDoctorData(doctor);
     if(matchData.length === 2 || matchData.length > 2)
     {
 setPatientCount(false);
-
     }
 
     
   }
   useEffect(()=>{
     appointment_count();
+    fetchDoctorData();
   })
 
 
@@ -138,20 +160,20 @@ setPatientCount(false);
   return (
     <>
       <h1 className="text-center my-3 text-light">
-        Book Your Appointment With Doctor {props.doctorData.name}
+        Book Your Appointment With Doctor {doctorData.name}
       </h1>
       <div className="row w-50 m-auto mb-5 d-flex justify-content-center">
         <div className={`col-3 text-center w-auto  rounded-pill text-light shadow ${classes.docInfoBg}`}>
           <p className="fw-bold fs-5 d-inline">Email :</p>
-          <p className="d-inline">{props.doctorData.email}</p>
+          <p className="d-inline">{doctorData.email}</p>
         </div>
         <div className={`col-3 text-center w-auto  rounded-pill text-light shadow ${classes.docInfoBg}`}>
           <p className="fw-bold fs-5 d-inline">Speciality :</p>
-          <p className="d-inline">{props.doctorData.speciality}</p>
+          <p className="d-inline">{doctorData.speciality}</p>
         </div>
         <div className={`col-3 text-center w-auto  rounded-pill text-light shadow ${classes.docInfoBg}`}>
           <p className="fw-bold fs-5 d-inline">Fee :</p>
-          <p className="d-inline">{props.doctorData.fee}</p>
+          <p className="d-inline">{doctorData.fee}</p>
         </div> 
         <div className={`col-3 text-center w-auto  rounded-pill text-light shadow ${classes.docInfoBg}`}>
           <p className="fw-bold fs-5 d-inline">Pending Patients :</p>
@@ -159,7 +181,7 @@ setPatientCount(false);
         </div>
         <div className={`col-3 text-center w-auto  rounded-pill text-light shadow ${classes.docInfoBg}`}>
           <p className="fw-bold fs-5 d-inline">Total Earning :</p>
-          <p className="d-inline">{Number(doneApointment) * Number(props.doctorData.fee)}</p>
+          <p className="d-inline">{Number(doneApointment) * Number(doctorData.fee)}</p>
         </div>
       </div>
 
