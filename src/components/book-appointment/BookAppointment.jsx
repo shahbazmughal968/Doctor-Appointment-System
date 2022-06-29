@@ -2,14 +2,16 @@ import classes from "./BookAppointment.module.css";
 import useInput from "../../hooks/CustomHook";
 import { useState,useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 const BookAppointment = (props) => {
   const navigate=useNavigate();
-  var fees=Number(props.doctorData.fee);
+  const params=useParams();
+ const [doctorData,setDoctorData]=useState([]);
 const [patientCount,setPatientCount]=useState(true);
 const [pendingPatients,setPendingpatients]=useState('');
 const [doneApointment, setDoneApointment] = useState([]);
-var done=Number(doneApointment);
+
   const {
     value: enteredName,
     isValid: enteredNameIsValid,
@@ -52,15 +54,22 @@ var done=Number(doneApointment);
         })
     }
     const matchData=loadedData.filter((user)=> user.doctor_id === props.doctorData.id && user.appointment_status==='Pending');
-    const appointmentDoneCount = loadedData.filter((count)=>count.appointment_status === 'Done' && count.doctor_id === props.doctorData.id)
-    setPendingpatients(matchData.length);
-    setDoneApointment(appointmentDoneCount.length);
+    const appointmentDoneCount = loadedData.filter((count)=>count.appointment_status === 'Done' && count.doctor_id === props.doctorData.id);
+    const doctor=loadedData.filter((doc)=>doc.doctor_id === params.doctorId)
+setDoctorData(doctor);
+
+      setPendingpatients(matchData.length);
+      setDoneApointment(appointmentDoneCount.length);
+    
+    
    
     if(matchData.length === 2 || matchData.length > 2)
     {
 setPatientCount(false);
 
     }
+
+    
   }
   useEffect(()=>{
     appointment_count();
@@ -167,6 +176,7 @@ setPatientCount(false);
           onChange={nameChangeHandler}
           onBlur={nameBlurHandler}
         />
+        {nameInputhasError && <p className="text-danger w-75 m-auto">Please enter a patient name</p>}
         <input
           className="w-75 m-auto p-3 mb-3 rounded-pill shadow "
           type="number"
@@ -175,6 +185,8 @@ setPatientCount(false);
           onChange={ageChangeHandler}
           onBlur={ageBlurHandler}
         />
+        {ageInputhasError && <p className="text-danger w-75 m-auto">Please enter a patient age</p>}
+
         <input
           className="w-75 m-auto p-3 mb-3 rounded-pill shadow "
           type="date"
@@ -183,6 +195,8 @@ setPatientCount(false);
           onChange={dateChangeHandler}
           onBlur={dateBlurHandler}
         />
+        {dateInputhasError && <p className="text-danger w-75 m-auto">Please enter a appointment date</p>}
+
         <button
           className="btn shadow w-75 m-auto fs-5 fw-bold text-light rounded-pill shadow  mb-3"
           type="submit"

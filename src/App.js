@@ -16,7 +16,7 @@ function App() {
      <Route path='home' element={<Home setDoctorData={setDoctorData}/>}/>
      <Route path='book-appointment' element={<BookAppointment doctorData={doctorData}/>}/>
      <Route path='all-appointments' element={<AllApointments />}/>
-     <Route path='doctor' element={<DoctorPage />}/>
+     <Route path="doctor/:doctorId" element={<BookAppointment doctorData={doctorData}/>}/>
     </Routes>
     </Layout>
   );
