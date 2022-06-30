@@ -1,7 +1,7 @@
 import classes from "./Home.module.css";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+import profile from '../../profile.png'
 const Home = () => {
  
   const navigate = useNavigate();
@@ -159,6 +159,8 @@ const Home = () => {
           <span>
             <span className="fw-bold ">Name: </span>
             {item.name}
+          </span> <span>
+            <span className={`fw-bold ${classes.imageSpan}`}><img src={profile} alt="" /></span>
           </span>
           <br />
           <span>

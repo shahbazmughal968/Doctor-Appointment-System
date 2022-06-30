@@ -15,3 +15,12 @@ button{
     background: linear-gradient(106.35deg, #15837f 0%, #388a87 100%);
 
 }
+img{
+    width: 120px;
+    height: 120px;
+
+}
+.imageSpan{
+    position: absolute;
+    left: 65%;
+}
