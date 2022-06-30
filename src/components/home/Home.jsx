@@ -1,9 +1,8 @@
 import classes from "./Home.module.css";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import profile from '../../profile.png'
+import profile from "../../profile.png";
 const Home = () => {
- 
   const navigate = useNavigate();
 
   // code for  the declaration of use States start from here
@@ -11,16 +10,15 @@ const Home = () => {
   const [dermatologyCount, setDermatologyCount] = useState("");
   const [emergencyMedicineCount, setEmergencyMedicineCount] = useState("");
   const [familyMedicineCount, setFamilyMedicineCount] = useState("");
-  const [heartSpecialistCount,setHeartSpecialistCount]=useState('');
-  const [diagnosticRadiologyCount,setDiagnosticRadiologyCount]=useState('');
-  const [clinicalImmunologyCount,setClinicalImmunologyCount]=useState('');
-  const [cardiovascularCount,setCardiovascularCount]=useState('');
-  const [gastroenterologyCount,setGastroenterologyCount]=useState('');
-  const [generalInternalMedicineCount,setGeneralInternalMedicineCount]=useState('');
-  const [generalSurgeryCount,setGeneralSurgeryCount]=useState(''); 
+  const [heartSpecialistCount, setHeartSpecialistCount] = useState("");
+  const [diagnosticRadiologyCount, setDiagnosticRadiologyCount] = useState("");
+  const [clinicalImmunologyCount, setClinicalImmunologyCount] = useState("");
+  const [cardiovascularCount, setCardiovascularCount] = useState("");
+  const [gastroenterologyCount, setGastroenterologyCount] = useState("");
+  const [generalInternalMedicineCount, setGeneralInternalMedicineCount] =
+    useState("");
+  const [generalSurgeryCount, setGeneralSurgeryCount] = useState("");
   // code for  the declaration of use States end's here
-
-
 
   // code for  the fetching doctors data start from here
 
@@ -79,13 +77,12 @@ const Home = () => {
     setHeartSpecialistCount(HeartSpecialistCount.length);
     setDiagnosticRadiologyCount(DiagnosticRadiologyCount.length);
     setClinicalImmunologyCount(ClinicalImmunologyCount.length);
-    setCardiovascularCount(CardiovascularCount.length)
-    setGastroenterologyCount(GastroenterologyCount.length)
-    setGeneralInternalMedicineCount(GeneralInternalMedicineCount.length)
+    setCardiovascularCount(CardiovascularCount.length);
+    setGastroenterologyCount(GastroenterologyCount.length);
+    setGeneralInternalMedicineCount(GeneralInternalMedicineCount.length);
     setGeneralSurgeryCount(GeneralSurgeryCount.length);
   };
   // code for  the fetching doctors data end's here
-
 
   // code for  useEffect to get doctors data on every refresh  start from here
   useEffect(() => {
@@ -93,74 +90,102 @@ const Home = () => {
   });
   // code for  useEffect to get doctors data on every refresh  start from here
 
-
   return (
     <>
-  {/* // code for display specialize doctors data  start from here */}
+      {/* // code for display specialize doctors data  start from here */}
 
       <div
         className=" row mx-3  
     my-3 d-flex justify-content-center py-2"
       >
-        <div className={`col-2 text-light w-auto shadow rounded-pill m-1 ${classes.bg}`}>
+        <div
+          className={`col-2 text-light w-auto shadow rounded-pill m-1 ${classes.bg}`}
+        >
           <span className="fw-bold">No of Dermatologist :</span>
           <span className="fs-5">{dermatologyCount}</span>
         </div>
-        <div className={`col-2 text-light w-auto shadow rounded-pill m-1 ${classes.bg}`} >
+        <div
+          className={`col-2 text-light w-auto shadow rounded-pill m-1 ${classes.bg}`}
+        >
           <span className="fw-bold">No of Emergency Medicine :</span>
           <span className="fs-5">{emergencyMedicineCount}</span>
         </div>
 
-        <div className={`col-2 text-light w-auto shadow rounded-pill m-1 ${classes.bg}`}>
+        <div
+          className={`col-2 text-light w-auto shadow rounded-pill m-1 ${classes.bg}`}
+        >
           <span className="fw-bold">No of Family Medicine :</span>
           <span className="fs-5">{familyMedicineCount}</span>
         </div>
-        <div className={`col-2 text-light w-auto shadow rounded-pill m-1 ${classes.bg}`}>
+        <div
+          className={`col-2 text-light w-auto shadow rounded-pill m-1 ${classes.bg}`}
+        >
           <span className="fw-bold">No of Heart Specialist :</span>
           <span className="fs-5">{heartSpecialistCount}</span>
         </div>
-        <div className={`col-2 text-light w-auto shadow rounded-pill m-1 ${classes.bg}`}>
+        <div
+          className={`col-2 text-light w-auto shadow rounded-pill m-1 ${classes.bg}`}
+        >
           <span className="fw-bold">No of Diagnostic Radiologist :</span>
           <span className="fs-5">{diagnosticRadiologyCount}</span>
         </div>
-        <div className={`col-2 text-light w-auto shadow rounded-pill m-1 ${classes.bg}`}>
+        <div
+          className={`col-2 text-light w-auto shadow rounded-pill m-1 ${classes.bg}`}
+        >
           <span className="fw-bold">No of Clinical Immunologist :</span>
           <span className="fs-5">{clinicalImmunologyCount}</span>
         </div>
 
-        <div className={`col-2 text-light w-auto shadow rounded-pill m-1 ${classes.bg}`}>
+        <div
+          className={`col-2 text-light w-auto shadow rounded-pill m-1 ${classes.bg}`}
+        >
           <span className="fw-bold">No of Cardiovascular :</span>
           <span className="fs-5">{cardiovascularCount}</span>
         </div>
-        <div className={`col-2 text-light w-auto shadow rounded-pill m-1 ${classes.bg}`}>
+        <div
+          className={`col-2 text-light w-auto shadow rounded-pill m-1 ${classes.bg}`}
+        >
           <span className="fw-bold">No of Gastroenterologist :</span>
           <span className="fs-5">{gastroenterologyCount}</span>
         </div>
 
-        <div className={`col-2 text-light w-auto shadow rounded-pill m-1 ${classes.bg}`}>
+        <div
+          className={`col-2 text-light w-auto shadow rounded-pill m-1 ${classes.bg}`}
+        >
           <span className="fw-bold">No of General Internal Medicine :</span>
           <span className="fs-5">{generalInternalMedicineCount}</span>
         </div>
-        <div className={`col-2 text-light w-auto shadow rounded-pill m-1 ${classes.bg}`}>
+        <div
+          className={`col-2 text-light w-auto shadow rounded-pill m-1 ${classes.bg}`}
+        >
           <span className="fw-bold">No of General Surgery :</span>
           <span className="fs-5">{generalSurgeryCount}</span>
         </div>
       </div>
-  {/* // code for display specialize doctors data  end's from here */}
+      {/* // code for display specialize doctors data  end's from here */}
 
+      <h1
+        className={`text-center shadow  text-light rounded-pill w-50 m-auto p-2 ${classes.bg}`}
+      >
+        {" "}
+        Welcome to Doctor Booking Portal
+      </h1>
 
-
-      <h1 className={`text-center shadow  text-light rounded-pill w-50 m-auto p-2 ${classes.bg}`}> Welcome to Doctor Booking Portal</h1>
-
-  {/* // code for display all doctors list  start from here */}
+      {/* // code for display all doctors list  start from here */}
 
       {doctorData.map((item) => (
-        <span key={item.id} className={`card p-4 shadow text-light  ${classes.doctorCard}`}>
+        <span
+          key={item.id}
+          className={`card p-4 shadow text-light  ${classes.doctorCard}`}
+        >
           <span>
             <span className="fw-bold ">Name: </span>
             {item.name}
-          </span> <span>
-            <span className={`fw-bold ${classes.imageSpan}`}><img src={profile} alt="" /></span>
+          </span>{" "}
+          <span>
+            <span className={`fw-bold ${classes.imageSpan}`}>
+              <img src={profile} alt="" />
+            </span>
           </span>
           <br />
           <span>
@@ -194,8 +219,7 @@ const Home = () => {
         </span>
       ))}
 
-  {/* // code for display all doctors list end's from here */}
-
+      {/* // code for display all doctors list end's from here */}
     </>
   );
 };

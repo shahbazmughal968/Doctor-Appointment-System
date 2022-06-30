@@ -11,3 +11,13 @@
     background: linear-gradient(106.35deg, #15837f 0%, #388a87 100%);
 
 }
+img{
+    width: 100px;
+    height: 100px;
+
+}
+.imageSpan{
+    position: absolute;
+    left: 70%;
+    bottom: 15%;
+}

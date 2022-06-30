@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import classes from "./AllApointment.module.css";
+import profile from '../../profile.png'
+
 const AllAppointments = () => {
   // code for  the declaration of use States start from here
   const [appointmentList, setAppointmentList] = useState([]);
@@ -80,6 +82,11 @@ const AllAppointments = () => {
                 Appointment with Doctor {item.doctor_name}
               </p>
               <br />
+              <span>
+            <span className={`fw-bold ${classes.imageSpan}`}>
+              <img src={profile} alt="" />
+            </span>
+          </span>
               <span className="fw-bold ">Patient Name: </span>
               {item.patient_name}
             </span>
