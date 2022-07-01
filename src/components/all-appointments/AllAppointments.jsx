@@ -100,6 +100,25 @@ const AllAppointments = () => {
               <span className="fw-bold ">Appointment Date: </span>
               {item.appointment_Date}
             </span>
+            <br />
+            <span>
+              <span className="fw-bold ">Appointment Status: </span>
+              {item.appointment_status}
+            </span>
+          {item.appointment_status==='Pending'&&<button className={`btn border rounded-pill ${classes.appointmentStatusBtn}`} onClick={async()=>{
+   await fetch(
+  `https://react-app-7bde4-default-rtdb.firebaseio.com/appointment/${item.id}/.json`,{
+    method:"PATCH",
+      body:JSON.stringify({appointment_status:'Done'
+      }),
+      headers:{
+        'Content-type':'application/json'
+      }
+  }
+);
+
+          }}>Done</button>}
+
           </span>
         ))}
       </div>
