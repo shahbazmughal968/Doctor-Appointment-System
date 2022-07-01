@@ -71,11 +71,11 @@ const AllAppointments = () => {
 
   {/* // code for  display all  appointments data start from here */}
 
-      <div className="w-75 m-auto">
+      <div className="w-75 m-auto ">
         {appointmentList.map((item) => (
           <span
             key={item.id}
-            className={`card p-4 shadow text-light  ${classes.listCard}`}
+            className={`card p-4  shadow text-light  ${classes.listCard}`}
           >
             <span>
               <p className={`fw-bold  shadow rounded-pill text-light p-2 text-center ${classes.bg}`}>

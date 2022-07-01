@@ -19,10 +19,11 @@ img{
 .imageSpan{
     position: absolute;
     left: 75%;
-    bottom: 25%;
+    bottom: 35%;
 }
 .appointmentStatusBtn{
     position:absolute;
-    left: 76%;
+    left: 68%;
     top: 78%;
+    width: 120px;
 }
