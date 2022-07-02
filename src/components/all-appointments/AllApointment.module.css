@@ -26,4 +26,7 @@ img{
     left: 68%;
     top: 78%;
     width: 120px;
+    background: linear-gradient(106.35deg, #40adaa 0%, #088884 100%);
+color: white;
+font-weight: bold;
 }

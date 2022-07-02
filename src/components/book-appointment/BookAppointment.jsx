@@ -130,7 +130,7 @@ const BookAppointment = (props) => {
       });
     }
     const matchData = loadedData.filter(
-      (patient) => patient.patient_name === enteredName
+      (patient) => patient.patient_name === enteredName && patient.appointment_status === "Pending"
     );
     if (matchData.length > 0) {
       alert(
